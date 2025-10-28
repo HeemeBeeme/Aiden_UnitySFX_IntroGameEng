@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MusicTriggers : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     public GameObject PlayTrigger;
     public GameObject PauseTrigger;
 
@@ -14,6 +16,8 @@ public class MusicTriggers : MonoBehaviour
         {
             other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
             PauseTrigger.GetComponent<Renderer>().material = InactiveTrigger;
+
+            audioSource.Play();
             //Debug.Log("Play Trigger");
         }
 
@@ -21,6 +25,8 @@ public class MusicTriggers : MonoBehaviour
         {
             other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
             PlayTrigger.GetComponent<Renderer>().material = InactiveTrigger;
+
+            audioSource.Pause();
             //Debug.Log("Pause Trigger");
         }
     }
