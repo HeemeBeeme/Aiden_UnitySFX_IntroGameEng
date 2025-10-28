@@ -17,7 +17,10 @@ public class MusicTriggers : MonoBehaviour
             other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
             PauseTrigger.GetComponent<Renderer>().material = InactiveTrigger;
 
-            audioSource.Play();
+            if(1 == 1 /* audio source is paused */)
+            {
+
+            }
             //Debug.Log("Play Trigger");
         }
 
