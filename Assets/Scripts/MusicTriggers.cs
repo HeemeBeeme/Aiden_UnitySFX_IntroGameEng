@@ -9,7 +9,7 @@ public class MusicTriggers : MonoBehaviour
     public Material ActiveTrigger;
     public Material InactiveTrigger;
 
-    private bool IsPaused = true;
+    private bool IsPaused = false;
 
     private void OnTriggerEnter(Collider other)
     {
