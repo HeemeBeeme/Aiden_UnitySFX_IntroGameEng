@@ -47,21 +47,33 @@ public class FlatAudioTriggers : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Clip1Trigger"))
         {
-            other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
-
-            Clip1Source.Play();
-
-            if(Duration == 0f)
+            if(Clip1Wait)
             {
-                Clip1Wait = false;
+                other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
+
+                Clip1Source.Play();
+
+                if (Duration == 0f)
+                {
+                    Clip1Wait = false;
+                }
             }
+            
         }
 
         if (other.gameObject.CompareTag("Clip2Trigger"))
         {
-            other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
-            Clip2Source.Play();
-            //Debug.Log("Clip 2 Trigger");
+            if (Clip2Wait)
+            {
+                other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
+
+                Clip2Source.Play();
+
+                if (Duration2 == 0f)
+                {
+                    Clip2Wait = false;
+                }
+            }
         }
     }
 }
