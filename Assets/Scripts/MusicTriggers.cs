@@ -4,8 +4,6 @@ using UnityEngine;
 public class MusicTriggers : MonoBehaviour
 {
     public AudioSource audioSource;
-
-    public GameObject PlayTrigger;
     public GameObject PauseTrigger;
 
     public Material ActiveTrigger;
@@ -13,37 +11,23 @@ public class MusicTriggers : MonoBehaviour
 
     private bool IsPaused = true;
 
-    private void Update()
-    {
-
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("PlayTrigger"))
+        if(IsPaused)
         {
+            //unpause
             other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
-            PauseTrigger.GetComponent<Renderer>().material = InactiveTrigger;
             IsPaused = false;
-
-            if (IsPaused)
-            {
-                audioSource.UnPause();
-            }
-            else
-            {
-                audioSource.Play();
-            }
+            audioSource.Play();
         }
-
-        if(other.gameObject.CompareTag("PauseTrigger"))
+        else
         {
-            other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
-            PlayTrigger.GetComponent<Renderer>().material = InactiveTrigger;
-
+            other.gameObject.GetComponent<Renderer>().material = InactiveTrigger;
             audioSource.Pause();
             IsPaused = true;
         }
+        
+
+        
     }
 }
