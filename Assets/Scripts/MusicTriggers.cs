@@ -10,18 +10,24 @@ public class MusicTriggers : MonoBehaviour
     public Material ActiveTrigger;
     public Material InactiveTrigger;
 
+    private bool IsPaused = true;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("PlayTrigger"))
         {
             other.gameObject.GetComponent<Renderer>().material = ActiveTrigger;
             PauseTrigger.GetComponent<Renderer>().material = InactiveTrigger;
+            IsPaused = false;
 
-            if(1 == 1 /* audio source is paused */)
+            if (IsPaused)
             {
-
+                audioSource.UnPause();
             }
-            //Debug.Log("Play Trigger");
+            else
+            {
+                audioSource.Play();
+            }
         }
 
         if(other.gameObject.CompareTag("PauseTrigger"))
@@ -30,7 +36,7 @@ public class MusicTriggers : MonoBehaviour
             PlayTrigger.GetComponent<Renderer>().material = InactiveTrigger;
 
             audioSource.Pause();
-            //Debug.Log("Pause Trigger");
+            IsPaused = true;
         }
     }
 }
