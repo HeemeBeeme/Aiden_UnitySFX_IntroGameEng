@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ed28baa71cd82479d8acf7ad82f2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1940189785}
   PlayTrigger: {fileID: 1045457966}
   PauseTrigger: {fileID: 850112704}
   ActiveTrigger: {fileID: 2100000, guid: 53ea27e4d5ac3694a97ad1380891c6b9, type: 2}
@@ -2258,7 +2258,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: dc6a8548012c67d43945f1c27a1a3c7b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
